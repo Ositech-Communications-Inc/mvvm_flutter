@@ -5,7 +5,6 @@ import 'package:flutter/material.dart';
 
 import '../helper/toast.dart';
 
-/// 对错误 [e] 进行分发处理
 dispatchFailure(BuildContext context, dynamic e) {
   var message = e.toString();
   if (e is DioError) {

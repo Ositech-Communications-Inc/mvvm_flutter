@@ -7,7 +7,6 @@ Future<T> _showAlert<T>({BuildContext context, Widget child}) => showDialog<T>(
       builder: (BuildContext context) => child,
     );
 
-
 Future<bool> showAlert(BuildContext context,
         {String title,
         String negativeText = "Cancel",
@@ -63,7 +62,6 @@ List<Widget> _buildAlertActions(BuildContext context, bool onlyPositive,
   }
 }
 
-
 Future _showLoadingDialog(BuildContext c, LoadingDialog loading,
         {bool cancelable = true}) =>
     showDialog(
@@ -71,7 +69,6 @@ Future _showLoadingDialog(BuildContext c, LoadingDialog loading,
         barrierDismissible: cancelable,
         builder: (BuildContext c) => loading);
 
-/// 加载框
 class LoadingDialog extends CupertinoAlertDialog {
   BuildContext parentContext;
   BuildContext currentContext;
@@ -79,20 +76,20 @@ class LoadingDialog extends CupertinoAlertDialog {
   show(BuildContext context) {
     parentContext = context;
     showing = true;
-    _showLoadingDialog(context, this).then((_){
-        showing=false;
+    _showLoadingDialog(context, this).then((_) {
+      showing = false;
     });
   }
 
   hide() {
-    if(showing) {
+    if (showing) {
       Navigator.removeRoute(parentContext, ModalRoute.of(currentContext));
     }
   }
 
   @override
   Widget build(BuildContext context) {
-    currentContext= context;
+    currentContext = context;
     return WillPopScope(
       onWillPop: () => Future.value(true),
       child: LayoutBuilder(
