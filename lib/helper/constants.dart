@@ -1,2 +1,1 @@
-
-const KEY_TOKEN="token";
+const KEY_TOKEN = "token";
